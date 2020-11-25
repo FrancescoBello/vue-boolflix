@@ -2,8 +2,8 @@ var app = new Vue({
   el: "#root",
   data: {
     movies:[],
-   series:[],
-   lingue:[],
+    series:[],
+    lingue:[],
     newSearch: ""
 
   },
@@ -25,7 +25,7 @@ var app = new Vue({
       }
 
     },
-    movieSearch(){
+    cercaS(){
 
       if (this.newSearch != " ") {
         axios.get("https://api.themoviedb.org/3/search/tv", {
@@ -36,6 +36,7 @@ var app = new Vue({
            }
         }).then((risultati) => {
           this.series=risultati.data.results
+          this.newSearch = ""
         });
       }
 

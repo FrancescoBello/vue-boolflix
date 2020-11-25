@@ -12,16 +12,16 @@
   <body>
     <div id="root">
 
-      <input type="text" name="" value="" v-model="newSearch" @keyup.enter="movieSearch">
+      <input type="text" name="" value="" v-model="newSearch" @keyup.enter="movieSearch, cercaS"  >
       <div class="film">
-      <div class="filmBox" v-for = "(movie) in movies">
+      <div class="filmBox" v-for = "movie in movies">
 
         <p>titolo: {{ movie.title }}  </p>
 
         <p>titolo originale: {{ movie.original_title }}  </p>
 
         <p>lingua originale: {{ movie.original_language }} </p>
-    
+
 
         <p> valutazione:  {{ movie.vote_average }} </p>
       </div>
