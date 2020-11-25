@@ -4,23 +4,29 @@
     <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 
   </head>
   <body>
     <div id="root">
+
       <input type="text" name="" value="" v-model="newSearch" @keyup.enter="movieSearch">
-      <div class="filmBox" v-for = "movie in movies">
+      <div class="film">
+      <div class="filmBox" v-for = "(movie) in movies">
 
-        <p>titolo: {{ movie.title }}</p>
+        <p>titolo: {{ movie.title }}  </p>
 
-        <p>titolo originale: {{ movie.original_title }}</p>
+        <p>titolo originale: {{ movie.original_title }}  </p>
 
-        <p>lingua originale: {{ movie.original_language }}</p>
+        <p>lingua originale: {{ movie.original_language }} </p>
+    
 
-        <p> valutazione:  {{ movie.vote_average }}</p>
+        <p> valutazione:  {{ movie.vote_average }} </p>
       </div>
+
+
       <div class="filmBox" v-for = "serie in series">
 
         <p>titolo: {{ serie.name }}</p>
@@ -32,6 +38,7 @@
         <p> valutazione:  {{ serie.vote_average }}</p>
         <p>popolarità: {{ serie.popularity }}</p>
       </div>-->
+      </div>
 
 
 

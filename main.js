@@ -2,7 +2,8 @@ var app = new Vue({
   el: "#root",
   data: {
     movies:[],
-    series:[],
+   series:[],
+   lingue:[],
     newSearch: ""
 
   },
@@ -18,10 +19,11 @@ var app = new Vue({
            }
         }).then((risultati) => {
           this.movies=risultati.data.results
+          this.newSearch = ""
+          console.log(risultati);
         });
       }
 
-    }
     },
     movieSearch(){
 
@@ -38,6 +40,11 @@ var app = new Vue({
       }
 
     }
+
+
+
+
+  },
 
 
 });
