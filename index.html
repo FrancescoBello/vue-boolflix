@@ -12,32 +12,40 @@
   <body>
     <div id="root">
 
-      <input type="text" name="" value="" v-model="newSearch" @keyup.enter="movieSearch(), cercaS()"  >
+      <input type="text" name="" value="" v-model="newSearch" @keyup.enter="movieSearch(), tvSearch()"  >
       <div class="film">
       <div class="filmBox" v-for = "movie in movies">
 
-        <p>titolo: {{ movie.title }}  </p>
+        <p>titolo: </p>
+        <p> {{ movie.title }}  </p>
 
         <p>titolo originale: {{ movie.original_title }}  </p>
+        <p>Lingua Originale:  </p>
+        <img :src="'lingue/' + movie.original_language + '.png'" :alt="movie.original_language">
 
-        <p>lingua originale: {{ movie.original_language }} </p>
+
+
 
 
         <p> valutazione:  {{ movie.vote_average }} </p>
+
       </div>
 
 
       <div class="filmBox" v-for = "serie in series">
+        <p>TvShow</p>
 
         <p>titolo: {{ serie.name }}</p>
 
         <p>titolo originale: {{ serie.original_name }}</p>
 
-        <p>lingua originale: {{ serie.original_language }}</p>
+        <p>lingua originale: </p>
+        <img :src="'lingue/' + serie.original_language + '.png'" :alt="serie.original_language">
+
 
         <p> valutazione:  {{ serie.vote_average }}</p>
-        <p>popolarità: {{ serie.popularity }}</p>
-      </div>-->
+
+      </div>
       </div>
 
 
