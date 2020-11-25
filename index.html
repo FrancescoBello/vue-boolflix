@@ -12,7 +12,7 @@
   <body>
     <div id="root">
 
-      <input type="text" name="" value="" v-model="newSearch" @keyup.enter="movieSearch, cercaS"  >
+      <input type="text" name="" value="" v-model="newSearch" @keyup.enter="movieSearch(), cercaS()"  >
       <div class="film">
       <div class="filmBox" v-for = "movie in movies">
 
