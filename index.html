@@ -15,35 +15,34 @@
       <input type="text" name="" value="" v-model="newSearch" @keyup.enter="movieSearch(), tvSearch()"  >
       <div class="film">
       <div class="filmBox" v-for = "movie in movies">
-
+        <img class="anteprima" v-if="movie.backdrop_path == null" src="file:///Users/francescobello/Desktop/Bello%20Francesco/vue-boolflix/anteprima.jpg" :alt="movie.backdrop_path">
+        <img class="anteprima" v-else :src="'https://image.tmdb.org/t/p/' + 'w342' + movie.backdrop_path " :alt="movie.backdrop_path">
         <p>titolo: </p>
         <p> {{ movie.title }}  </p>
 
         <p>titolo originale: {{ movie.original_title }}  </p>
+          <p >  <strong>Trama : </strong> {{ movie.overview }}</p>
         <p>Lingua Originale:  </p>
-        <img :src="'lingue/' + movie.original_language + '.png'" :alt="movie.original_language">
+        <img class="language" :src="'lingue/' + movie.original_language + '.png'" :alt="movie.original_language">
+        <p v-if="movie.vote_average > 0"> <i v-for="i in star(movie.vote_average)"class="fas fa-star"></i>
+          <i v-for="i in (5 - star(movie.vote_average))"class="far fa-star"></i></p>
+          <p v-else>n.d.</p>
 
-
-
-
-
-        <p> valutazione:  {{ movie.vote_average }} </p>
 
       </div>
 
 
       <div class="filmBox" v-for = "serie in series">
         <p>TvShow</p>
-
+        <img class="anteprima" v-if="serie.backdrop_path == null" src="file:///Users/francescobello/Desktop/Bello%20Francesco/vue-boolflix/anteprima.jpg" :alt="serie.backdrop_path">
+        <img class="anteprima" v-else :src="'https://image.tmdb.org/t/p/' + 'w342' + serie.backdrop_path " :alt="serie.backdrop_path">
         <p>titolo: {{ serie.name }}</p>
-
         <p>titolo originale: {{ serie.original_name }}</p>
-
+          <p>trama {{ serie.overview }}</p>
         <p>lingua originale: </p>
-        <img :src="'lingue/' + serie.original_language + '.png'" :alt="serie.original_language">
-
-
-        <p> valutazione:  {{ serie.vote_average }}</p>
+        <img class="language" :src="'lingue/' + serie.original_language + '.png'" :alt="serie.original_language">
+        <p v-if="serie.vote_average > 0"> <i v-for="i in star(serie.vote_average)"class="fas fa-star"></i>
+          <i v-for="i in (5 - star(serie.vote_average))"class="far fa-star"></i>  </p>
 
       </div>
       </div>

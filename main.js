@@ -40,7 +40,12 @@ var app = new Vue({
         });
       }
 
-    }
+    },
+    star(vote) {
+           return Math.ceil(vote / 2);
+         },
+
+
 
 
 
