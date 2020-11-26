@@ -11,8 +11,11 @@
   </head>
   <body>
     <div id="root">
-
-      <input type="text" name="" value="" v-model="newSearch" @keyup.enter="movieSearch(), tvSearch()"  >
+      <header>
+        <h1>boolflix</h1>
+        <input type="text" name="" value="" v-model="newSearch" @keyup.enter="movieSearch(), tvSearch()" placeholder="cerca qui"  >
+      </header>
+      <main>
       <div class="film">
       <div class="filmBox" v-for = "movie in movies">
         <img class="anteprima" v-if="movie.backdrop_path == null" src="file:///Users/francescobello/Desktop/Bello%20Francesco/vue-boolflix/anteprima.jpg" :alt="movie.backdrop_path">
@@ -46,6 +49,7 @@
 
       </div>
       </div>
+    </main>
 
 
 

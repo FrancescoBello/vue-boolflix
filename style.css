@@ -4,6 +4,29 @@
     box-sizing: border-box;
 }
 
+header{
+  height: 100px;
+  background-color: black;
+  clear: both;
+}
+header h1{
+  color: red;
+  text-transform: uppercase;
+  float: left;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+main{
+  background-color: #696969;
+  height: 100%;
+}
+input{
+  float: right;
+  height: 25px;
+  width: 200px;
+  border-radius: 5px;
+  margin: 20px 30px;
+}
 
 
 .filmBox{
