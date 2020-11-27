@@ -33,7 +33,7 @@ input{
 }
 
 
-.filmBox{
+/*.filmBox{
   display: flex;
   text-align: center;
   flex-direction: column;
@@ -47,20 +47,64 @@ input{
   padding: 1px;
   font-size: 15px;
 
+}*/
+.container {
+    max-width: 900px;
+    margin: auto;
 }
-.filmBox .anteprima{
+
+.container::after {
+    clear: both;
+    content: '';
+    display: table;
+}
+.filmBox{
+  float: left;
+  margin: 10px 10px;
+  width: 200px;
+  height: 300px;
+  background-color: black;
+  color: white;
+  padding: 1px;
+  font-size: 15px;
+  perspective: 1000px;
+}
+.box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.box-front .box-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+.filmBox:hover .box-inner {
+    transform: rotateY(180deg);
+}
+/*.box-front .anteprima{
   width: 100%;
   height: 100%;
-
+  object-fit: cover;
+}*/
+.box-back {
+ color: white;
+ transform: rotateY(180deg);
+ padding: 20px;
+ overflow: auto;
 }
 .filmBox:hover{
   overflow: auto;
 }
-.film{
+/*.film{
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
+}*/
 /*.flip-card {
   background-color: transparent;
   perspective: 1000px;
@@ -98,7 +142,8 @@ input{
   height: 20px;
 }
 .anteprima{
-  width: 342px;
+  width: 100%;
+  height: 300px;
 }
 
 

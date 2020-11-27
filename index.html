@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" charset="utf-8"></script>
@@ -16,13 +18,14 @@
         <input type="text" name="" value="" v-model="newSearch" @keyup.enter="movieSearch(), tvSearch()" placeholder="cerca qui"  >
       </header>
       <main>
-      <div class="film ">
+      <div class="container ">
       <div class="filmBox" v-for = "movie in movies">
-
+        <div class="box-inner">
+        <div class="box-front">
         <img class="anteprima" v-if="movie.backdrop_path == null" src="lingue/anteprima.jpg" :alt="movie.backdrop_path">
         <img class="anteprima" v-else :src="'https://image.tmdb.org/t/p/' + 'w342' + movie.backdrop_path " :alt="movie.backdrop_path">
-
-
+           </div>
+           <div class="box-back">
         <p><strong> {{ movie.title }} </strong> </p>
         <p><strong> {{ movie.original_title }}  </strong> </p>
           <p >{{ movie.overview }}</p>
@@ -30,21 +33,19 @@
         <p v-if="movie.vote_average > 0"> <i v-for="i in star(movie.vote_average)"class="fas fa-star"></i>
           <i v-for="i in (5 - star(movie.vote_average))"class="far fa-star"></i></p>
           <p v-else>n.d.</p>
-
-
-
-
-
+          </div>
+          </div>
       </div>
 
 
 
       <div class="filmBox" v-for = "serie in series">
-
+        <div class="box-inner">
+        <div class="box-front">
         <img class="anteprima" v-if="serie.backdrop_path == null" src="lingue/anteprima.jpg" :alt="serie.backdrop_path">
         <img class="anteprima" v-else :src="'https://image.tmdb.org/t/p/' + 'w342' + serie.backdrop_path " :alt="serie.backdrop_path">
-
-
+      </div>
+      <div class="box-back">
         <p>titolo: {{ serie.name }}</p>
         <p>titolo originale: {{ serie.original_name }}</p>
           <p>trama {{ serie.overview }}</p>
@@ -54,6 +55,8 @@
           <i v-for="i in (5 - star(serie.vote_average))"class="far fa-star"></i>  </p>
         </div>
       </div>
+    </div>
+    </div>
     </main>
 
 
