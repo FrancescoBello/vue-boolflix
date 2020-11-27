@@ -36,12 +36,13 @@ input{
   align-items: center;
   flex-basis: 200px;
   margin: 10px 10px;
-  height: 300;
-  width: 342px;
+  height: 300px;
+  width: 200px;
   background-color: black;
   color: white;
   padding: 1px;
   font-size: 15px;
+  overflow-y: auto;
 }
 
 .film{
@@ -54,17 +55,23 @@ input{
   height: 20px;
 }
 .anteprima{
-  width: 342px;
+  width: 184px;
 }
- .filmBox p{
-  visibility: hidden;
+.filmBox .anteprima{
+  width: 100%;
+
 }
-.filmBox .language{
- visibility: hidden;
+ .filmBox p, .filmBox .language{
+display: none;
 }
-.filmBox:hover p, .language{
-  visibility: visible;
+
+
+.filmBox:hover p, .filmBox:hover .language {
+  display: inline-block;
 }
+
+
+
 .filmBox:hover .anteprima{
-  visibility: hidden;
+  display: none;
 }

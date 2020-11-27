@@ -18,14 +18,11 @@
       <main>
       <div class="film">
       <div class="filmBox" v-for = "movie in movies">
-        <img class="anteprima" v-if="movie.backdrop_path == null" src="file:///Users/francescobello/Desktop/Bello%20Francesco/vue-boolflix/anteprima.jpg" :alt="movie.backdrop_path">
-        <img class="anteprima" v-else :src="'https://image.tmdb.org/t/p/' + 'w342' + movie.backdrop_path " :alt="movie.backdrop_path">
-        <p>titolo: </p>
-        <p> {{ movie.title }}  </p>
-
-        <p>titolo originale: {{ movie.original_title }}  </p>
-          <p >  <strong>Trama : </strong> {{ movie.overview }}</p>
-        <p>Lingua Originale:  </p>
+        <img class="anteprima" v-if="movie.backdrop_path == null" src="lingue/anteprima.jpg" :alt="movie.backdrop_path">
+        <img class="anteprima" v-else :src="'https://image.tmdb.org/t/p/' + 'w185' + movie.backdrop_path " :alt="movie.backdrop_path">
+        <p><strong> {{ movie.title }} </strong> </p>
+        <p><strong> {{ movie.original_title }}  </strong> </p>
+          <p >{{ movie.overview }}</p>
         <img class="language" :src="'lingue/' + movie.original_language + '.png'" :alt="movie.original_language">
         <p v-if="movie.vote_average > 0"> <i v-for="i in star(movie.vote_average)"class="fas fa-star"></i>
           <i v-for="i in (5 - star(movie.vote_average))"class="far fa-star"></i></p>
@@ -36,9 +33,8 @@
 
 
       <div class="filmBox" v-for = "serie in series">
-        <p>TvShow</p>
-        <img class="anteprima" v-if="serie.backdrop_path == null" src="file:///Users/francescobello/Desktop/Bello%20Francesco/vue-boolflix/anteprima.jpg" :alt="serie.backdrop_path">
-        <img class="anteprima" v-else :src="'https://image.tmdb.org/t/p/' + 'w342' + serie.backdrop_path " :alt="serie.backdrop_path">
+        <img class="anteprima" v-if="serie.backdrop_path == null" src="vue-boolflix/anteprima.jpg" :alt="serie.backdrop_path">
+        <img class="anteprima" v-else :src="'https://image.tmdb.org/t/p/' + 'w185' + serie.backdrop_path " :alt="serie.backdrop_path">
         <p>titolo: {{ serie.name }}</p>
         <p>titolo originale: {{ serie.original_name }}</p>
           <p>trama {{ serie.overview }}</p>
